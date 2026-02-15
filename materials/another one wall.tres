@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://biwx0bgp30wl5"]
+
+[ext_resource type="Texture2D" uid="uid://bfv1ac7qb15ed" path="res://pavement tiles/cracked_concrete_diff_1k.jpg" id="1_mr67r"]
+
+[resource]
+albedo_texture = ExtResource("1_mr67r")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true

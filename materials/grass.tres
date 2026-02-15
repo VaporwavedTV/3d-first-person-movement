@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://i71h4xx0hoq0"]
+
+[ext_resource type="Texture2D" uid="uid://csilosgh64ydm" path="res://grass try tingy/this one is not grass but is also grass/textures/coast_sand_rocks_02_diff_1k.jpg" id="1_daf5y"]
+[ext_resource type="Texture2D" uid="uid://di46o41w6scpy" path="res://grass try tingy/textures/coast_sand_rocks_02_rough_1k.exr" id="2_vr6s1"]
+
+[resource]
+albedo_texture = ExtResource("1_daf5y")
+roughness_texture = ExtResource("2_vr6s1")
+roughness_texture_channel = 4
+normal_enabled = true
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true

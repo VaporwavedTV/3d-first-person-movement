@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c4uflspu5xigx"
+path="res://.godot/imported/Line 6.mp3-df4b320560b10e5371d69544439e638e.mp3str"
+
+[deps]
+
+source_file="res://voice lines for game(BAD)/Line 6.mp3"
+dest_files=["res://.godot/imported/Line 6.mp3-df4b320560b10e5371d69544439e638e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

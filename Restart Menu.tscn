@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuelmosodjfth"]
+
+[ext_resource type="Script" uid="uid://wtgqod77oy3m" path="res://Restart Menu.gd" id="1_7k637"]
+
+[sub_resource type="Theme" id="Theme_50iyd"]
+default_font_size = 64
+
+[sub_resource type="Theme" id="Theme_v66gp"]
+default_font_size = 64
+
+[sub_resource type="Theme" id="Theme_1rdux"]
+default_font_size = 64
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Restart Menu" type="VBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 660.0
+offset_top = 279.0
+offset_right = 949.0
+offset_bottom = 694.0
+script = ExtResource("1_7k637")
+
+[node name="Continue" type="Button" parent="Restart Menu"]
+layout_mode = 2
+theme = SubResource("Theme_50iyd")
+text = "Continue"
+
+[node name="Restart" type="Button" parent="Restart Menu"]
+layout_mode = 2
+theme = SubResource("Theme_v66gp")
+text = "Restart"
+
+[node name="Exit" type="Button" parent="Restart Menu"]
+layout_mode = 2
+theme = SubResource("Theme_1rdux")
+text = "Exit"
+
+[connection signal="pressed" from="Restart Menu/Continue" to="Restart Menu" method="_on_continue_pressed"]
+[connection signal="pressed" from="Restart Menu/Restart" to="Restart Menu" method="_on_restart_pressed"]
+[connection signal="pressed" from="Restart Menu/Exit" to="Restart Menu" method="_on_exit_pressed"]

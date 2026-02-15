@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duqt2lenycjdl"
+path="res://.godot/imported/Line 3 yes res.mp3-e2e99df9acc8467cb736d17d8559b6da.mp3str"
+
+[deps]
+
+source_file="res://voice lines for game(BAD)/Line 3 yes res.mp3"
+dest_files=["res://.godot/imported/Line 3 yes res.mp3-e2e99df9acc8467cb736d17d8559b6da.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

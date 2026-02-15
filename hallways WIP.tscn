@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://skuyng65p2a3"]
+
+[ext_resource type="Texture2D" uid="uid://boloa18kkt8a6" path="res://pavement tiles/rubber_tiles_diff_1k.jpg" id="1_ukbes"]
+[ext_resource type="Texture2D" uid="uid://qxxm8se8aam0" path="res://pavement tiles/stone_tile_wall_diff_1k.jpg" id="2_ysq7u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysq7u"]
+albedo_texture = ExtResource("1_ukbes")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pl5m0"]
+albedo_texture = ExtResource("2_ysq7u")
+uv1_scale = Vector3(0.35, 0.35, 0.35)
+uv1_triplanar = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ysq7u")
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20739, -0.00918579, -0.749329)
+size = Vector3(78.3457, 0.317444, 71.2389)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207, 4, -0.749)
+size = Vector3(78.3457, 0.317444, 71.2389)
+
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_pl5m0")
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7039, 1.99585, -17.2084)
+size = Vector3(1, 4.1626, 38.8281)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7039, 1.99585, 20.2897)
+size = Vector3(1, 4.1626, 29.6621)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1826, 1.99585, 1.55002)
+size = Vector3(29.4443, 4.1626, 0.492852)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1826, 1.99585, 6.18982)
+size = Vector3(29.4443, 4.1626, 0.492852)

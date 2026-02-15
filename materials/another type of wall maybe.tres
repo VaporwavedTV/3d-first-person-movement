@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bts8we2d24d02"]
+
+[ext_resource type="Texture2D" uid="uid://qxxm8se8aam0" path="res://pavement tiles/stone_tile_wall_diff_1k.jpg" id="1_2nlgw"]
+
+[resource]
+albedo_texture = ExtResource("1_2nlgw")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://7jvwe6si8ngt"]
+
+[ext_resource type="Texture2D" uid="uid://cr7tsvd0bgjbr" path="res://eyes blurry game.png" id="1_kl1jm"]
+
+[sub_resource type="Animation" id="Animation_u1pny"]
+resource_name = "Wake up placeholder"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EyesBlurryGame:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bm38k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EyesBlurryGame:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cqc6"]
+_data = {
+&"RESET": SubResource("Animation_bm38k"),
+&"Wake up placeholder": SubResource("Animation_u1pny")
+}
+
+[node name="Wake up anim node" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Wake up anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ColorRect")
+libraries = {
+&"": SubResource("AnimationLibrary_2cqc6")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -3.0
+offset_right = 1967.0
+offset_bottom = 1338.0
+color = Color(0, 0, 0, 1)
+
+[node name="EyesBlurryGame" type="Sprite2D" parent="."]
+position = Vector2(996.5, 669)
+scale = Vector2(0.770703, 0.523438)
+texture = ExtResource("1_kl1jm")

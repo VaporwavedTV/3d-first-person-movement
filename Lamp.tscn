@@ -1,0 +1,87 @@
+[gd_scene load_steps=14 format=3 uid="uid://dl1is5kfuxn3l"]
+
+[ext_resource type="Script" uid="uid://bcckx4jjliq37" path="res://Lamp.gd" id="1_yljkn"]
+[ext_resource type="Texture2D" uid="uid://br5tur27pouwx" path="res://pavement tiles/metal_plate_02_diff_1k.jpg" id="2_pe6pt"]
+[ext_resource type="Texture2D" uid="uid://o07ho4joqi87" path="res://pavement tiles/oak_veneer_01_diff_1k.jpg" id="3_vq6cw"]
+[ext_resource type="Material" uid="uid://b4ktx3w31speo" path="res://materials/wall num 8.tres" id="4_hdhus"]
+[ext_resource type="Texture2D" uid="uid://boloa18kkt8a6" path="res://pavement tiles/rubber_tiles_diff_1k.jpg" id="4_mbvnk"]
+[ext_resource type="AudioStream" uid="uid://dig10i2ap4pex" path="res://88659__dave_girtsman__light_switch_click.mp3" id="6_hdhus"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yljkn"]
+height = 1.41835
+radius = 0.431152
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdhus"]
+albedo_texture = ExtResource("2_pe6pt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydotr"]
+albedo_texture = ExtResource("3_vq6cw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4adwd"]
+albedo_texture = ExtResource("3_vq6cw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1gq5y"]
+albedo_texture = ExtResource("3_vq6cw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq6cw"]
+albedo_texture = ExtResource("2_pe6pt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo7n4"]
+albedo_texture = ExtResource("4_mbvnk")
+
+[node name="Lamp" type="RigidBody3D" groups=["Interactable", "grab"]]
+collision_layer = 12
+collision_mask = 15
+script = ExtResource("1_yljkn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.262492, 0, 0.964934, 0, 1, 0, -0.964934, 0, -0.262492, -0.00123644, 0.348868, -0.000338487)
+shape = SubResource("CylinderShape3D_yljkn")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.533408, 0.845858, 0, -0.845858, 0.533408, 0, 0, 0, 1, 0.207717, 0.80165, 0)
+radius = 0.015625
+height = 0.498951
+material = SubResource("StandardMaterial3D_hdhus")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.332571, -0.527379, 0.781836, -0.845858, 0.533408, 2.04859e-08, -0.417037, -0.661322, -0.623484, -0.113266, 0.80165, -0.157003)
+radius = 0.015625
+height = 0.498951
+material = SubResource("StandardMaterial3D_ydotr")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(-0.119528, -0.189543, -0.97457, -0.845858, 0.533408, 3.68981e-09, 0.519843, 0.824348, -0.224084, -0.0439573, 0.827262, 0.191552)
+radius = 0.015625
+height = 0.476526
+material = SubResource("StandardMaterial3D_4adwd")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180099, 0)
+radius = 0.0351563
+height = 1.02139
+material = SubResource("StandardMaterial3D_1gq5y")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.878613, 0, 0, 0, 23.2593, 0, 0, 0, 0.864726, 0, 0.705017, 0)
+material_override = SubResource("StandardMaterial3D_vq6cw")
+inner_radius = 0.475276
+outer_radius = 0.510411
+material = ExtResource("4_hdhus")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.333313, 0)
+use_collision = true
+radius = 0.374512
+height = 0.0523682
+material = SubResource("StandardMaterial3D_uo7n4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00315148, 0.552722, -0.00361943)
+light_color = Color(1, 0.764706, 0.482353, 1)
+shadow_enabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_hdhus")

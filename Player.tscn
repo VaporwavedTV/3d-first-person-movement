@@ -1,0 +1,440 @@
+[gd_scene load_steps=29 format=3 uid="uid://dcjtd2lxel6ir"]
+
+[ext_resource type="Script" uid="uid://vwshm3avuk75" path="res://playerAll.gd" id="1_kne1u"]
+[ext_resource type="Script" uid="uid://it7v8gmeenl7" path="res://Player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://b41ac6y0ixjiy" path="res://Player Camera.gd" id="2_kpjcp"]
+[ext_resource type="Script" uid="uid://cutxte32mdn6o" path="res://Raycast.gd" id="4_e80uo"]
+[ext_resource type="Texture2D" uid="uid://bg8jq2bfsftbm" path="res://yo yo yo sumilo 1 norm.png" id="5_cxr5p"]
+[ext_resource type="Script" uid="uid://lc1h8rp6ce7l" path="res://talking_box.gd" id="6_tdg3f"]
+[ext_resource type="PackedScene" uid="uid://cuelmosodjfth" path="res://Restart Menu.tscn" id="7_dtqjt"]
+
+[sub_resource type="Animation" id="Animation_tdg3f"]
+resource_name = "Jump_land"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head_pos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.25, 0), Vector3(0, -0.4, 0), Vector3(0, 0.25, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cxr5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head_pos:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.236083, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../head/Stamina Bar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.568627, 0.729412, 0.588235)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../head/Stamina Bar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_e80uo"]
+resource_name = "Running animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head_pos:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0166667, 0.266667, 0.516667, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.25, 0), Vector3(0.5, -0.3, 0), Vector3(0, 0.25, 0), Vector3(-0.5, -0.3, 0), Vector3(0, 0.25, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hp6x6"]
+resource_name = "stamina_appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../head/Stamina Bar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.568627, 0.729412, 0), Color(1, 0.568627, 0.729412, 0.588235)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../head/Stamina Bar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wi0c6"]
+resource_name = "stamina_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../head/Stamina Bar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.568627, 0.729412, 0.588235), Color(1, 0.568627, 0.729412, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../head/Stamina Bar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdg3f"]
+_data = {
+&"Jump_land": SubResource("Animation_tdg3f"),
+&"RESET": SubResource("Animation_cxr5p"),
+&"Running animation": SubResource("Animation_e80uo"),
+&"stamina_appear": SubResource("Animation_hp6x6"),
+&"stamina_fade": SubResource("Animation_wi0c6")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kne1u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cxr5p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kpjcp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_e80uo"]
+radius = 4.0
+height = 8.0
+radial_segments = 4
+rings = 1
+
+[sub_resource type="FontVariation" id="FontVariation_e80uo"]
+variation_embolden = 0.5
+spacing_top = -4
+spacing_bottom = -4
+
+[sub_resource type="Theme" id="Theme_cxr5p"]
+default_font = SubResource("FontVariation_e80uo")
+default_font_size = 21
+
+[sub_resource type="Animation" id="Animation_dtqjt"]
+resource_name = "Character_Fade1"
+length = 0.25
+
+[sub_resource type="Animation" id="Animation_5ncpa"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wi0c6"]
+_data = {
+&"Character_Fade1": SubResource("Animation_dtqjt"),
+&"RESET": SubResource("Animation_5ncpa")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_cxr5p"]
+
+[sub_resource type="Theme" id="Theme_tdg3f"]
+default_font = SubResource("FontVariation_cxr5p")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_wi0c6"]
+default_font_size = 24
+
+[sub_resource type="Theme" id="Theme_dtqjt"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_5ncpa"]
+default_font_size = 32
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dtqjt"]
+
+[node name="Player" type="Node3D"]
+process_mode = 1
+script = ExtResource("1_kne1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Body")
+libraries = {
+&"": SubResource("AnimationLibrary_tdg3f")
+}
+speed_scale = 2.0
+
+[node name="UI_AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Body")
+libraries = {
+&"": SubResource("AnimationLibrary_tdg3f")
+}
+speed_scale = 2.0
+
+[node name="Body" type="CharacterBody3D" parent="."]
+process_mode = 1
+script = ExtResource("1_xhfnw")
+
+[node name="Head_pos" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236083, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Body/Head_pos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161389, 0)
+visible = false
+radius = 0.143066
+height = 0.377808
+
+[node name="Body collision" type="CollisionShape3D" parent="Body"]
+shape = SubResource("CapsuleShape3D_kne1u")
+
+[node name="Crouch collision" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51073, 0)
+shape = SubResource("SphereShape3D_cxr5p")
+
+[node name="head" type="CharacterBody3D" parent="."]
+process_mode = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="Player_camera" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501116, 0)
+script = ExtResource("2_kpjcp")
+
+[node name="Player_raycast" type="RayCast3D" parent="head/Player_camera"]
+transform = Transform3D(1, 0, 0, 0, -1.31134e-07, -1, 0, 3, -4.37114e-08, 0, 0.05, 0)
+collision_mask = 4
+debug_shape_custom_color = Color(1, 0, 0, 1)
+script = ExtResource("4_e80uo")
+
+[node name="dropping_raycast" type="RayCast3D" parent="head/Player_camera/Player_raycast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+collision_mask = 4
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="crouching_raycast" type="RayCast3D" parent="head/Player_camera/Player_raycast"]
+transform = Transform3D(25.135, 0, 0, 0, -5.24537e-08, -10.195, 0, 1.2, -4.45638e-07, 0.0307218, -0.00278033, 0)
+visible = false
+collision_mask = 4
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="Drop_position" type="Node3D" parent="head/Player_camera/Player_raycast"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.333333, 0.0208884, -0.739273, -0.00558269)
+
+[node name="Flashlight" type="SpotLight3D" parent="head/Player_camera"]
+visible = false
+light_color = Color(1, 0.784314, 0.588235, 1)
+light_energy = 3.0
+spot_range = 50.0
+spot_angle = 40.0
+
+[node name="Hand_position" type="Node3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695356, 0.139686, -0.638298)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501116, 0)
+shape = SubResource("SphereShape3D_kpjcp")
+
+[node name="Reticle" type="MeshInstance2D" parent="head"]
+position = Vector2(799, 423)
+mesh = SubResource("SphereMesh_e80uo")
+
+[node name="Reticle text" type="RichTextLabel" parent="head"]
+offset_left = 706.0
+offset_top = 431.0
+offset_right = 893.0
+offset_bottom = 457.0
+theme = SubResource("Theme_cxr5p")
+theme_override_constants/outline_size = 6
+text = "Press E to Interact"
+fit_content = true
+
+[node name="Stamina Bar" type="ProgressBar" parent="head"]
+modulate = Color(1, 0.568627, 0.729412, 0.588235)
+offset_left = 246.0
+offset_top = 777.0
+offset_right = 1356.0
+offset_bottom = 817.0
+value = 100.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Think Talk" type="Control" parent="head"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 246.0
+offset_top = 660.0
+offset_right = 286.0
+offset_bottom = 700.0
+
+[node name="Talk_anim_player" type="AnimationPlayer" parent="head/Think Talk"]
+libraries = {
+&"": SubResource("AnimationLibrary_wi0c6")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="head/Think Talk"]
+modulate = Color(1, 1, 1, 0.176471)
+layout_mode = 0
+offset_left = -471.0
+offset_top = -866.0
+offset_right = 1476.0
+offset_bottom = 455.0
+color = Color(0.19736, 0.0786121, 0.177999, 1)
+
+[node name="Talking Character" type="TextureRect" parent="head/Think Talk"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = -468.0
+offset_right = 441.0
+offset_bottom = 296.0
+texture = ExtResource("5_cxr5p")
+expand_mode = 1
+
+[node name="Talk Backround 1" type="ColorRect" parent="head/Think Talk"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+offset_right = 1110.0
+offset_bottom = 158.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Talking Box" type="RichTextLabel" parent="head/Think Talk"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 12.0
+offset_right = 1088.0
+offset_bottom = 140.0
+theme = SubResource("Theme_tdg3f")
+text = "Hooray!"
+fit_content = true
+script = ExtResource("6_tdg3f")
+
+[node name="Talk Backround 2" type="ColorRect" parent="head/Think Talk"]
+visible = false
+layout_mode = 0
+offset_top = 86.0
+offset_right = 1109.0
+offset_bottom = 128.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="Talking Box 2" type="RichTextLabel" parent="head/Think Talk"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 90.0
+offset_right = 1099.0
+offset_bottom = 135.0
+theme = SubResource("Theme_wi0c6")
+text = "woooo"
+fit_content = true
+script = ExtResource("6_tdg3f")
+
+[node name="No_Button" type="Button" parent="head/Think Talk"]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 531.0
+offset_bottom = 140.0
+focus_mode = 0
+theme = SubResource("Theme_dtqjt")
+text = "No way"
+
+[node name="Yes_Button" type="Button" parent="head/Think Talk"]
+visible = false
+layout_mode = 0
+offset_left = 573.0
+offset_top = 76.0
+offset_right = 1088.0
+offset_bottom = 144.0
+focus_mode = 0
+theme = SubResource("Theme_dtqjt")
+text = "Absolutely"
+
+[node name="Name Plate" type="Control" parent="head/Think Talk"]
+anchors_preset = 0
+offset_top = -46.0
+offset_right = 40.0
+offset_bottom = -6.0
+
+[node name="ColorRect2" type="ColorRect" parent="head/Think Talk/Name Plate"]
+layout_mode = 0
+offset_right = 230.0
+offset_bottom = 47.0
+color = Color(0.19736, 0.0786121, 0.177999, 1)
+
+[node name="Name" type="RichTextLabel" parent="head/Think Talk/Name Plate"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 218.0
+offset_bottom = 48.0
+theme = SubResource("Theme_5ncpa")
+text = "ButtCarl"
+fit_content = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="head"]
+mesh = SubResource("CapsuleMesh_dtqjt")
+
+[node name="looking_at_thing" type="Node3D" parent="."]
+process_mode = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73347, 0, -2.44395)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="looking_at_thing"]
+visible = false
+
+[node name="eyes" type="Node3D" parent="."]
+process_mode = 1
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="eyes"]
+visible = false
+
+[node name="testing label" type="RichTextLabel" parent="."]
+offset_right = 948.0
+offset_bottom = 386.0
+
+[node name="Menu" parent="." instance=ExtResource("7_dtqjt")]
+
+[connection signal="pressed" from="head/Think Talk/No_Button" to="head/Player_camera/Player_raycast" method="_on_no_button_pressed"]
+[connection signal="pressed" from="head/Think Talk/Yes_Button" to="head/Player_camera/Player_raycast" method="_on_yes_button_pressed"]

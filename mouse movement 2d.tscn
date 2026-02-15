@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4d1vw28hw2gq"]
+
+[ext_resource type="Script" uid="uid://bshi6nuroraic" path="res://mouse movement 2d.gd" id="1_yl7pp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yl7pp"]
+radius = 200.0
+height = 400.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl7pp"]
+size = Vector2(128, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oseoq"]
+size = Vector2(40, 40)
+
+[node name="mouse movement 2d" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.196078, 0.196078, 0.196078, 0.686275)
+position = Vector2(32, -3)
+scale = Vector2(2.20249, 2.20249)
+mesh = SubResource("SphereMesh_yl7pp")
+
+[node name="Option 1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Option 1"]
+position = Vector2(-312, 1)
+shape = SubResource("RectangleShape2D_yl7pp")
+
+[node name="ProgressBar" type="ProgressBar" parent="Option 1"]
+offset_left = -375.0
+offset_top = -62.0
+offset_right = -247.0
+offset_bottom = 64.0
+show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Option 1"]
+offset_left = -325.0
+offset_top = -13.0
+offset_right = -247.0
+offset_bottom = 64.0
+text = "Yes"
+fit_content = true
+
+[node name="Option 2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Option 2"]
+position = Vector2(372, -1)
+shape = SubResource("RectangleShape2D_yl7pp")
+
+[node name="ProgressBar" type="ProgressBar" parent="Option 2"]
+offset_left = 308.0
+offset_top = -64.0
+offset_right = 436.0
+offset_bottom = 62.0
+show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Option 2"]
+offset_left = 358.0
+offset_top = -15.0
+offset_right = 436.0
+offset_bottom = 62.0
+text = "No"
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yl7pp")
+
+[node name="Area2D" type="Area2D" parent="ColorRect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_oseoq")
+
+[connection signal="area_entered" from="ColorRect/Area2D" to="ColorRect" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="ColorRect/Area2D" to="ColorRect" method="_on_area_2d_area_exited"]

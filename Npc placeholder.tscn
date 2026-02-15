@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://deg4b76fgg8tu"]
+
+[ext_resource type="Script" uid="uid://vxxdvq15jghm" path="res://Npc Placeholder.gd" id="1_qjnpr"]
+[ext_resource type="Texture2D" uid="uid://bg8jq2bfsftbm" path="res://yo yo yo sumilo 1 norm.png" id="2_10eyt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cfkj4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjnpr"]
+
+[sub_resource type="Theme" id="Theme_10eyt"]
+default_font_size = 48
+
+[node name="NPC" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["Interactable"]]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.255192, 0)
+visible = false
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_qjnpr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CharacterBody3D"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.204154, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_cfkj4")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_qjnpr")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.333007, 0)
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture = ExtResource("2_10eyt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_top = -9.0
+offset_right = 630.0
+offset_bottom = 453.0
+theme = SubResource("Theme_10eyt")
+text = "none"

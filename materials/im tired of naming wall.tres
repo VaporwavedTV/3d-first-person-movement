@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cu3exexojf85v"]
+
+[ext_resource type="Texture2D" uid="uid://br5tur27pouwx" path="res://pavement tiles/metal_plate_02_diff_1k.jpg" id="1_wss3y"]
+
+[resource]
+albedo_texture = ExtResource("1_wss3y")
+metallic = 0.75
+roughness = 0.4
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true

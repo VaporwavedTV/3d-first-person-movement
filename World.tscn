@@ -1,0 +1,147 @@
+[gd_scene load_steps=22 format=3 uid="uid://cqrcbuhtu3v04"]
+
+[ext_resource type="Texture2D" uid="uid://c8nhb5qmlglnf" path="res://moonless_golf_4k.hdr" id="1_2dftf"]
+[ext_resource type="PackedScene" uid="uid://dcjtd2lxel6ir" path="res://Player.tscn" id="1_c6gwx"]
+[ext_resource type="Texture2D" uid="uid://bgrc1uxwovyd3" path="res://test test try test.png" id="2_bcbcq"]
+[ext_resource type="AudioStream" uid="uid://but28f80bpi2i" path="res://Paul Russell - Lil Boo Thang (Lyric Video).mp3" id="2_fv4w7"]
+[ext_resource type="PackedScene" uid="uid://deg4b76fgg8tu" path="res://Npc placeholder.tscn" id="4_js7pq"]
+[ext_resource type="PackedScene" uid="uid://dl1is5kfuxn3l" path="res://Lamp.tscn" id="5_eu7l1"]
+[ext_resource type="PackedScene" uid="uid://cdlncesnjtgst" path="res://Table consept.tscn" id="6_p1v5b"]
+[ext_resource type="Script" uid="uid://bhn8xklmqw8wv" path="res://Area lamp monitor.gd" id="7_wygdx"]
+[ext_resource type="PackedScene" uid="uid://c4d1vw28hw2gq" path="res://mouse movement 2d.tscn" id="9_fvag4"]
+[ext_resource type="PackedScene" uid="uid://87j2jpp8cr0u" path="res://area building WIP.tscn" id="9_kva58"]
+[ext_resource type="PackedScene" uid="uid://bwkj3pqvaeb35" path="res://city WIP.tscn" id="10_f5c0m"]
+[ext_resource type="PackedScene" uid="uid://c70limju7ahtu" path="res://Bed WIP.tscn" id="13_b2ar6"]
+[ext_resource type="PackedScene" uid="uid://skuyng65p2a3" path="res://hallways WIP.tscn" id="13_ee7l0"]
+[ext_resource type="PackedScene" uid="uid://bl22nee4jxo87" path="res://nex_bot.tscn" id="14_ee7l0"]
+[ext_resource type="PackedScene" uid="uid://bxnrvd5463xlw" path="res://choose one.tscn" id="15_gn8l5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bcbcq"]
+panorama = ExtResource("1_2dftf")
+
+[sub_resource type="Sky" id="Sky_js7pq"]
+sky_material = SubResource("PanoramaSkyMaterial_bcbcq")
+
+[sub_resource type="Environment" id="Environment_eu7l1"]
+background_mode = 2
+background_energy_multiplier = 0.3
+sky = SubResource("Sky_js7pq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_js7pq"]
+albedo_texture = ExtResource("2_bcbcq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1v5b"]
+size = Vector3(3.51157, 1.54312, 2.83058)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fvag4"]
+viewport_path = NodePath("Sprite3D/CSGBox3D3/SubViewport")
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eu7l1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.612372, 0.353554, 0, -0.5, 0.866025, 0.707107, -0.612372, -0.353554, 0, 1, 0)
+visible = false
+light_color = Color(1, 0.782812, 0.708264, 1)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.612372, 0.353554, 0, -0.5, 0.866025, 0.707107, -0.612372, -0.353554, 0, 1, 0)
+light_color = Color(0.776672, 0.51537, 0.943998, 1)
+light_energy = 0.15
+shadow_enabled = true
+
+[node name="Spooky scary skeletons" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_fv4w7")
+pitch_scale = 1.5
+
+[node name="Spawn Position" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62624, 0.00805664, -0.388111)
+material_override = SubResource("StandardMaterial3D_js7pq")
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(26.8861, 0.397949, 33.814)
+
+[node name="NPC" parent="." instance=ExtResource("4_js7pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89852, 1.21573, 9.90666)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8866, 1.80412, 0)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(3.74854, 3.33493, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.724365, 0, 2.56667)
+size = Vector3(5.19727, 3.33493, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0803223, 0.587755, 1.065)
+size = Vector3(3.58789, 2.15942, 3.13)
+
+[node name="Lamp" parent="." instance=ExtResource("5_eu7l1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0561984, 0.926402, -2.97271)
+
+[node name="Table" parent="." instance=ExtResource("6_p1v5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31358, -0.00385356, 12.2882)
+
+[node name="Lamp finder" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5715, 3.18382, 10.7081)
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("7_wygdx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lamp finder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0762653, 0.0592499, -0.113411)
+shape = SubResource("BoxShape3D_p1v5b")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 2.03627, 10.8857)
+visible = false
+shaded = true
+texture = SubResource("ViewportTexture_fvag4")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Sprite3D" groups=["3d_options"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0211182, 0.00238037, 0.000732422)
+visible = false
+collision_layer = 4
+collision_mask = 4
+size = Vector3(9.56909, 9.8324, 0.249023)
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D/CSGBox3D3"]
+size = Vector2i(959, 979)
+
+[node name="mouse movement 2d" parent="Sprite3D/CSGBox3D3/SubViewport" instance=ExtResource("9_fvag4")]
+offset_left = 462.0
+offset_top = 473.0
+offset_right = 462.0
+offset_bottom = 473.0
+
+[node name="Node3D" parent="." instance=ExtResource("9_kva58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.481, 0, -9.50508)
+
+[node name="City" parent="." instance=ExtResource("10_f5c0m")]
+transform = Transform3D(-0.00489557, 0, -0.499976, 0, 0.5, 0, 0.499976, 0, -0.00489557, -0.126777, 0.182082, -27.5848)
+
+[node name="Player" parent="." instance=ExtResource("1_c6gwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87218, 3.16854, 0.815062)
+
+[node name="Node3D2" parent="." instance=ExtResource("13_b2ar6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.35439, 14)
+
+[node name="Node3D3" parent="." instance=ExtResource("13_ee7l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.8916, 0.187054, 3.33653)
+
+[node name="nex bot" parent="." instance=ExtResource("14_ee7l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, 25)
+
+[node name="Node3D4" parent="." instance=ExtResource("15_gn8l5")]
+transform = Transform3D(0.00846904, 0, 0.749952, 0, 0.75, 0, -0.749952, 0, 0.00846904, -9.57841, 1.58132, -54.8443)
+
+[connection signal="body_entered" from="Lamp finder" to="Lamp finder" method="_on_body_entered"]
