@@ -1,11 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://deg4b76fgg8tu"]
+[gd_scene load_steps=12 format=3 uid="uid://deg4b76fgg8tu"]
 
 [ext_resource type="Script" uid="uid://vxxdvq15jghm" path="res://Npc Placeholder.gd" id="1_qjnpr"]
 [ext_resource type="Texture2D" uid="uid://bg8jq2bfsftbm" path="res://yo yo yo sumilo 1 norm.png" id="2_10eyt"]
+[ext_resource type="Texture2D" uid="uid://b4ivjjjpbv0k1" path="res://3 pose dancey sprite frames.png" id="3_p8y2o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cfkj4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjnpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2dh6"]
+atlas = ExtResource("3_p8y2o")
+region = Rect2(0, 0, 1824, 2166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqgqu"]
+atlas = ExtResource("3_p8y2o")
+region = Rect2(1824, 0, 1824, 2166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ob1k"]
+atlas = ExtResource("3_p8y2o")
+region = Rect2(3648, 0, 1824, 2166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8mq4"]
+atlas = ExtResource("3_p8y2o")
+region = Rect2(5472, 0, 1824, 2166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i24su"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2dh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqgqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ob1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8mq4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="Theme" id="Theme_10eyt"]
 default_font_size = 48
@@ -31,10 +68,19 @@ shape = SubResource("CapsuleShape3D_qjnpr")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.333007, 0)
+visible = false
 billboard = 2
 shaded = true
 alpha_cut = 1
 texture = ExtResource("2_10eyt")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.256189, 0)
+billboard = 2
+shaded = true
+alpha_cut = 1
+sprite_frames = SubResource("SpriteFrames_i24su")
+frame_progress = 0.978597
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false

@@ -48,7 +48,7 @@ func _physics_process(delta):
 			ui_anim_player.play("stamina_fade")
 		
 	
-	if Input.is_action_pressed("run") and is_on_floor() and not Input.is_action_pressed("crouch") and can_run == true:
+	if Input.is_action_pressed("run") and is_on_floor() and crouching.crouch_height == 0 and can_run == true:
 		speed = 8
 		if speed == 8 and moving == true:
 			is_running = true

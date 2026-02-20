@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqrcbuhtu3v04"]
+[gd_scene load_steps=21 format=3 uid="uid://cqrcbuhtu3v04"]
 
 [ext_resource type="Texture2D" uid="uid://c8nhb5qmlglnf" path="res://moonless_golf_4k.hdr" id="1_2dftf"]
 [ext_resource type="PackedScene" uid="uid://dcjtd2lxel6ir" path="res://Player.tscn" id="1_c6gwx"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c70limju7ahtu" path="res://Bed WIP.tscn" id="13_b2ar6"]
 [ext_resource type="PackedScene" uid="uid://skuyng65p2a3" path="res://hallways WIP.tscn" id="13_ee7l0"]
 [ext_resource type="PackedScene" uid="uid://bl22nee4jxo87" path="res://nex_bot.tscn" id="14_ee7l0"]
-[ext_resource type="PackedScene" uid="uid://bxnrvd5463xlw" path="res://choose one.tscn" id="15_gn8l5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bcbcq"]
 panorama = ExtResource("1_2dftf")
@@ -140,8 +139,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.8916, 0.187054, 3.33653)
 
 [node name="nex bot" parent="." instance=ExtResource("14_ee7l0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3, 25)
-
-[node name="Node3D4" parent="." instance=ExtResource("15_gn8l5")]
-transform = Transform3D(0.00846904, 0, 0.749952, 0, 0.75, 0, -0.749952, 0, 0.00846904, -9.57841, 1.58132, -54.8443)
 
 [connection signal="body_entered" from="Lamp finder" to="Lamp finder" method="_on_body_entered"]

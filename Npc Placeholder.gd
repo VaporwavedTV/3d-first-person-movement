@@ -20,6 +20,9 @@ var Identity = "Edwardo"
 var choosing = false
 
 
+func _ready():
+	$"../AnimatedSprite3D".play("default")
+	
 
 func Interact():
 	

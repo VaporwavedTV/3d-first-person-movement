@@ -7,9 +7,6 @@ var moving = false
 @onready var Player_body = get_node("/root/World").find_child("Body", true)
 
 
-func _ready():
-	$AnimatedSprite3D.play("default")
-	
 
 func _process(delta):
 	

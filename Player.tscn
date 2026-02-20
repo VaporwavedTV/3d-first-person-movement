@@ -313,6 +313,7 @@ libraries = {
 }
 
 [node name="ColorRect2" type="ColorRect" parent="head/Think Talk"]
+visible = false
 modulate = Color(1, 1, 1, 0.176471)
 layout_mode = 0
 offset_left = -471.0
@@ -322,6 +323,7 @@ offset_bottom = 455.0
 color = Color(0.19736, 0.0786121, 0.177999, 1)
 
 [node name="Talking Character" type="TextureRect" parent="head/Think Talk"]
+visible = false
 layout_mode = 0
 offset_left = -93.0
 offset_top = -468.0
